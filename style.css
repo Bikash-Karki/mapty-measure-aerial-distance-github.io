@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: #ececec;
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  background-color: #fff;
+  padding: 2.5rem;
+
+  display: flex;
+}
+
+
+
+
+
+/* SIDEBAR */
+.sidebar {
+  flex-basis: 50rem;
+  background-color: #2d3439;
+  padding: 3rem 5rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 5.2rem;
+  align-self: center;
+  margin-bottom: 4rem;
+}
+
+
+
+
+/* MAP */
+#map {
+  flex: 1;
+  height: 100%;
+  background-color: #aaa;
+}
+
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: #2d3439;
+  color: #ececec;
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: #2d3439;
+}
+footer{
+  position: absolute;
+  opacity: 0;
+}
+
+.measure{
+  font-size: 65px;
+}
+p{
+  font-size: 25px;
+}
+@media screen and (max-width: 700px) {
+  body{
+    display: block;
+  }
+  .sidebar {
+    display: none;
+  }
+  .logo {
+    height: 3rem;
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+  .measure{
+    font-size: 25px;
+  }
+  p{
+    font-size: 11px;
+  }
+  footer{
+    opacity: 1;
+    background-color: #2d3439;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+    
+  }
+}
