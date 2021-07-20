@@ -20,7 +20,7 @@ if (navigator.geolocation) {
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', ).addTo(map);
         
-        var geocoder = L.Control.geocoder({
+        const geocoder = L.Control.geocoder({
             defaultMarkGeocode: false
           })
             .on('markgeocode', function(e) {
