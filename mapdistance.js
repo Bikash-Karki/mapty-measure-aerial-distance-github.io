@@ -2,7 +2,7 @@
 
 const measure = document.querySelectorAll('.measure');
 
-let map, mapEvent, x1, y1, x2, y2;
+let map, mapEvent, x1, y1, x2, y2 , geo;
 const latDegToKm = 110.574;
 const lonDegToKm = 111.320;
 if (navigator.geolocation) {
@@ -19,6 +19,21 @@ if (navigator.geolocation) {
          }).setView(coords, 14);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', ).addTo(map);
+        
+        var geocoder = L.Control.geocoder({
+            defaultMarkGeocode: false
+          })
+            .on('markgeocode', function(e) {
+              var bbox = e.geocode.bbox;
+              var poly = L.polygon([
+                bbox.getSouthEast(),
+                bbox.getNorthEast(),
+                bbox.getNorthWest(),
+                bbox.getSouthWest()
+              ]).addTo(map);
+              map.fitBounds(poly.getBounds());
+            })
+            .addTo(map);
         // L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
         //  maxZoom: 16,
         //  subdomains:['mt0','mt1','mt2','mt3']
